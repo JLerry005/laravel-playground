@@ -1,0 +1,203 @@
+
+    ///////////////////////////////////////
+    ////                               ////
+    //// QUERY, ELOQUENT, AND MUTATOR  ////
+    ////                               ////
+    ///////////////////////////////////////
+
+
+
+    ////////////////////////////
+    // FETCH ALL THE USERS
+    ///////////////////////////
+
+    // $selectUsers = DB::select('select * from users WHERE email= :email', ['email'=>'johnlerryhehe@gmail.com']);
+    // $selectUsers = DB::select('select * from users');
+
+    // ARRAY COLLECTION
+    // $collection = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "Sample"]);
+ 
+    // $diff = $collection->diff([2, 4, 6, 8]);
+    
+    // dd($diff->all());
+    // return $diff->all();
+
+    ///////////////////////////
+    // FETCH DATA
+    ///////////////////////////
+
+    // foreach ($selectUsers as $user) {
+    //     $name = $user->name;
+    //     $email = $user->email;
+
+    //     echo 'Name: ' . $name . '  ' . '</br>' . $email;
+    //     echo $user->name;
+    // }
+
+
+    ///////////////////////////
+    // INSERT DATA
+    ///////////////////////////
+
+    // $insertUser = DB::insert('INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)', [4, 'John Lerry', 'johnlerry@gmail.com', 'johnxlerry']);
+    // $insertUser = DB::insert('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)', ['name'=>'Gnarly', 'email'=>'gnarly@gmail.com', 'password'=>'password']);
+
+
+    ///////////////////////////
+    // UPDATE DATA
+    ///////////////////////////
+
+    // $updateUser = DB::update('UPDATE users set name = "John Lerry Hapatinga" WHERE email = ? ', ['john@email.com']);
+    // $updateUser = DB::update('UPDATE users set name = :name, email = :email, password = "password" WHERE ID = :ID', ['ID' => 2]);
+
+
+    ///////////////////////////
+    // DELETE DATA
+    ///////////////////////////
+
+    // $deleteUser = DB::delete('DELETE FROM users WHERE email=?', ['johnlerry@gmail.com']);
+
+
+    ///////////////////////////
+    // Database: Query Builder
+    ///////////////////////////
+
+    //==========================
+    // FETCH ALL THE USERS
+    //==========================
+
+    // $selectUsers = DB::table('users')->get();
+    // $selectUsers = DB::table('users')->latest()->first();
+    // $selectUsers = DB::table('users')->orderBy('created_at','DESC')->first();
+    // $selectUsers = User::orderBy('created_at','DESC')->first();
+
+    // $selectUsers = DB::table('users')->where('name','John Lerry')->get();   
+    // return view('user.index', ['users' => $selectUsers]);
+
+    // GET THE SINGLE ROW FROM DATABASE 
+    // $selectUsers = DB::table('users')->where('name', 'John Lerry')->first(); 
+    
+    // GET SINGE VALUE
+    // $selectUsers = DB::table('users')->where('name', 'John Lerry')->value('password');
+    // return $selectUsers;
+    
+    // GET THE SINGLE ROW BY IT'S ID
+    // $selectUsers = DB::table('users')->find(3);
+    // return $selectUsers;
+
+    // RETRIEVING A LIST OF COLUMN VALUES
+    // $names = DB::table('users')->pluck('email');
+
+    // foreach( $names as $name ){
+    //     echo $name. '</br>';
+    // }
+
+    // CHUNKING RESULTS
+    // $selectUsers = DB::table('users')->orderBy('ID')->chunk(4, function(Collection $selectUsers) {
+    //     foreach($selectUsers as $user) {
+    //         echo $user->email . '</br>';
+    //     }
+
+    //     return false;
+    // });
+
+    //==========================
+    // INSERT USERS
+    //==========================
+
+    // $insertUser = DB::table('users')->insert([
+    //     'name'  => 'Joshua',
+    //     'email' => 'joshua@email.com',
+    //     'password' => 'password',
+    //     'created_at' => now(),
+    //     'updated_at' => now()
+    // ]);
+
+    //==========================
+    // UPDATE USERS
+    //==========================
+
+    // $updateUser = DB::table('users')
+    //                 ->where('ID', 2)
+    //                 ->update(['email' =>    'emailupdate1@gmail.com']);
+
+    //==========================
+    // DELETE USERS
+    //==========================
+
+    // $deleteUser = DB::table('users')
+    //                 ->where('ID', 4)
+    //                 ->delete();
+
+
+    ///////////////////////////
+    // ELOQUENT
+    ///////////////////////////
+    
+    //==========================
+    // FETCH ALL THE USERS
+    //==========================
+    // $selectUsers = User::orderBy('created_at','DESC')->first();
+    // $selectUsers = User::orderBy('created_at', 'ASC')->first();
+    // $selectUsers = User::where('id', 1)->first();
+    // $selectUsers = User::find(1);
+    // $selectUsers = User::all();
+    
+    // foreach(User::all() as $user) {
+    //     echo $user . '</br>';
+    // }
+
+
+    //==========================
+    // INSERT DATA
+    //==========================
+    
+    // $insertUser = User::create([
+    //     'name' => 'Izuku',
+    //     'email' => 'izukumidoriya@email.com',
+    //     'password' => 'password'
+    // ]);
+
+    // $insertUser = User::create([
+    //     'name' => 'AJ',
+    //     'email' => 'aj@email.com',
+    //     'password' => bcrypt('password') 
+    // ]);
+
+    //==========================
+    // UPDATE DATA
+    //==========================
+
+    // $updateData = User::where('ID', 1)->update([
+    //     'name'  =>  'Gojo Saturo',
+    //     'email' =>  'gojosaturo@email.com'
+    // ]);
+
+    // $updateData = User::find(9);
+    // $updateData->update([
+    //     'name'  =>  'Naruto Uzumaki',
+    //     'email' =>  'narutouzumaki1@gmail.com'
+    // ]);
+
+
+    //==========================
+    // UPDATE DATA
+    //==========================
+    
+    // $deleteData = User::find(9);
+    // $deleteData->delete();
+
+    // dd($selectUsers->name);
+
+
+
+
+
+
+
+
+
+
+
+
+
